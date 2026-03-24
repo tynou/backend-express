@@ -19,4 +19,12 @@ router.get('/', function(req, res, next) {
   res.send(users.items);
 });
 
+router.get('/:id', function(req, res, next) {
+  const id = parseInt(req.params.id);
+  const user = users.items.find(user => user.id === id);
+  if (user === undefined)
+    return res.status(404);
+  res.send(user);
+});
+
 module.exports = router;
