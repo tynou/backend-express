@@ -27,4 +27,10 @@ router.get('/:id', function(req, res, next) {
   res.send(user);
 });
 
+router.post('/', function(req, res, next) {
+  const newUser = req.body;
+  users.items.push(newUser);
+  res.status(201).json(newUser);
+})
+
 module.exports = router;
