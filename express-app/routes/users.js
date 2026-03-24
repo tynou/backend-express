@@ -19,4 +19,10 @@ router.get('/', function(req, res, next) {
   res.send(users.items);
 });
 
+router.post('/', function(req, res, next) {
+  const newUser = req.body;
+  users.items.push(newUser);
+  res.status(201).json(newUser);
+})
+
 module.exports = router;
